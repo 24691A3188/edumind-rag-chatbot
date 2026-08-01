@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     PINECONE_REGION: str = os.getenv("PINECONE_REGION", "us-east-1")
 
     # Embedding Model Settings
-    EMBEDDING_MODEL_NAME: str = os.getenv("EMBEDDING_MODEL_NAME", "sentence-transformers/all-MiniLM-L6-v2")
+    EMBEDDING_MODEL_NAME: str = os.getenv("EMBEDDING_MODEL_NAME", "text-embedding-004")
     EMBEDDING_DIMENSION: int = int(os.getenv("EMBEDDING_DIMENSION", "384"))
 
     # Google Gemini Credentials

@@ -24,7 +24,7 @@ services:
       - key: PINECONE_REGION
         value: us-east-1
       - key: EMBEDDING_MODEL_NAME
-        value: sentence-transformers/all-MiniLM-L6-v2
+        value: text-embedding-004
       - key: EMBEDDING_DIMENSION
         value: "384"
       - key: GEMINI_API_KEY
