@@ -146,14 +146,16 @@ try:
 
     required_ui_tokens = [
         "st.set_page_config",
-        "background-color: var(--bg-deep)",
         "glass-header",
         "glass-card",
         "st.sidebar.radio",
-        "💬 Chat Assistant",
-        "📚 Knowledge Documents",
-        "⚙️ Admin Control",
-        "Clear Chat History"
+        "🏠 Home",
+        "📄 Admin Control",
+        "💬 AI Chat Assistant",
+        "📚 Documents",
+        "📜 Chat History",
+        "ℹ️ About",
+        "🚪 Logout"
     ]
     all_tokens_found = all(token in fe_code for token in required_ui_tokens)
     record_test("Phase 4: Glassmorphic Streamlit UI System", all_tokens_found, 0.0, "All UI glass tokens and pages present")
