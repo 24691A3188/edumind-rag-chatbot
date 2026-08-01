@@ -55,7 +55,7 @@ except Exception as e:
     sys.exit(1)
 
 # 4. Test Embedding Engine & Dimension Verification
-print("\n[4/7] Testing Embeddings Engine (sentence-transformers)...")
+print("\n[4/7] Testing Embeddings Engine (Google Gemini)...")
 try:
     emb = embedding_engine.generate_embedding("Verification test query")
     dim = len(emb)
