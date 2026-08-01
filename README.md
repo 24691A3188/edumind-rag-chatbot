@@ -10,7 +10,7 @@ Welcome to **EduMind AI RAG SaaS**, an enterprise-grade website chatbot that lev
 - **Backend API**: Python FastAPI (`backend/app.py`, Swagger UI at `/docs`)
 - **Relational Database**: Supabase PostgreSQL (`backend/database.py`, `schema.sql`)
 - **Vector Store**: Pinecone Serverless Vector Database (`backend/pinecone_db.py`, 384 dimensions, Cosine similarity metric)
-- **Dense Embedding Model**: Hugging Face `sentence-transformers/all-MiniLM-L6-v2` (`backend/embeddings.py`)
+- **Dense Embedding Model**: Google Gemini Embeddings API `text-embedding-004` (384-dim cloud embeddings, `backend/embeddings.py`)
 - **LLM Synthesis**: Google Gemini API (`backend/rag.py`)
 
 ```
@@ -25,7 +25,7 @@ Welcome to **EduMind AI RAG SaaS**, an enterprise-grade website chatbot that lev
             ▼                                 ▼
 Text Processing & Chunking          Supabase Metadata Record
             │
-  SentenceTransformers (384d)
+Google Gemini Embeddings (384d)
             │
             ▼
    Pinecone Vector Store
@@ -118,6 +118,10 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 PINECONE_API_KEY=your-pinecone-api-key
 PINECONE_INDEX_NAME=edumind-knowledge-base
 
+EMBEDDING_MODEL_NAME=text-embedding-004
+EMBEDDING_DIMENSION=384
+
+GOOGLE_API_KEY=your-google-api-key
 GEMINI_API_KEY=your-gemini-api-key
 GEMINI_MODEL=gemini-flash-latest
 ```

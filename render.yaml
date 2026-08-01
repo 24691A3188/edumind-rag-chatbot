@@ -29,3 +29,5 @@ services:
         value: "384"
       - key: GEMINI_API_KEY
         sync: false
+      - key: GOOGLE_API_KEY
+        sync: false

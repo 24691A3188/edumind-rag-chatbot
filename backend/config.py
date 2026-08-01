@@ -29,7 +29,8 @@ class Settings(BaseSettings):
     EMBEDDING_DIMENSION: int = int(os.getenv("EMBEDDING_DIMENSION", "384"))
 
     # Google Gemini Credentials
-    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "your-gemini-api-key")
+    GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", os.getenv("GEMINI_API_KEY", ""))
+    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", os.getenv("GOOGLE_API_KEY", "your-gemini-api-key"))
     GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
 
     def is_supabase_configured(self) -> bool:
@@ -47,9 +48,11 @@ class Settings(BaseSettings):
         )
 
     def is_gemini_configured(self) -> bool:
+        key = self.GOOGLE_API_KEY or self.GEMINI_API_KEY
         return bool(
-            self.GEMINI_API_KEY 
-            and "your-gemini" not in self.GEMINI_API_KEY
+            key 
+            and "your-gemini" not in key
+            and "your-google" not in key
         )
 
 settings = Settings()

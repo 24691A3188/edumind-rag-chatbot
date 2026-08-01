@@ -101,7 +101,8 @@ class RAGEngine:
                 return f"Based on your uploaded documents ({len(retrieved_chunks)} relevant chunk(s) retrieved):\n\n{formatted_snippets}"
 
         try:
-            client = genai.Client(api_key=settings.GEMINI_API_KEY)
+            api_key = settings.GOOGLE_API_KEY or settings.GEMINI_API_KEY
+            client = genai.Client(api_key=api_key)
             model_name = settings.GEMINI_MODEL or "gemini-flash-latest"
             response = client.models.generate_content(
                 model=model_name,

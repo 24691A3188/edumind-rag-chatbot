@@ -17,7 +17,8 @@ class EmbeddingEngine:
         self.dimension = settings.EMBEDDING_DIMENSION or 384
 
     def _get_client(self) -> genai.Client:
-        return genai.Client(api_key=settings.GEMINI_API_KEY)
+        key = settings.GOOGLE_API_KEY or settings.GEMINI_API_KEY
+        return genai.Client(api_key=key)
 
     def _embed_content_with_fallback(self, contents: Any) -> List[Any]:
         client = self._get_client()
@@ -124,5 +125,8 @@ class EmbeddingEngine:
             "status": "ready" if is_ready else "unconfigured"
         }
 
+# Alias class name as requested
+GeminiEmbeddingEngine = EmbeddingEngine
+
 # Global Singleton Embedding Engine
-embedding_engine = EmbeddingEngine()
+embedding_engine = GeminiEmbeddingEngine()
